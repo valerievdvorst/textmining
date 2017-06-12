@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>LOX textmining</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/bootstrap.min.css') }}">
+
+    <!-- Custom CSS -->
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/landing-page-table.css') }}">
+
+    <!-- Custom Fonts -->
+    <link href="{{ url_for('static',filename='font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <!-- tabel css -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand topnav" href="#">LOX textmining</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#about">Zoeken naar LOX</a>
+                    </li>
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+    <!-- Header -->
+    <a name="about"></a>
+    <div class="intro-header">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h1>LOX textmining</h1>
+                        <h3> Gezocht op: {{zoekwoord}}</h3>
+                            <table class= table border='1' id='table1' cellspacing="0" cellpadding="0"  style="table-layout:fixed;">
+                            <thead align="left">
+                            <tr>
+                            <th scope="col" >PubmedID<br>
+                            <font color="black"><input id="txtPrjName" onkeyup="searchRows('table1')" type="text" placeholder="Zoeken op Pubmed ID"/> 
+                            </font></th>
+                            <th scope="col"> Titel<br>
+                            <font color="black"><input id="txtPrjName" onkeyup="searchRows('table1')" type="text" placeholder="Zoeken op titel"/>
+                            </font></th>
+                            <th scope="col"> Auteur<br>
+                            <font color="black"><input id="txtPrjName" onkeyup="searchRows('table1')" type="text" placeholder="Zoeken op auteur"/>
+                            </font></th>
+                            <th scope="col">Datum<br>
+                            <font color="black"><input id="txtPrjName" onkeyup="searchRows('table1')" type="text" placeholder="Zoeken op datum"/>
+                            </font></th>
+                            <th scope="col" >Keywords<br>
+                            <font color="black"><input id="txtPrjName" onkeyup="searchRows('table1')" type="text" placeholder="Zoeken op keywords"/>
+                            </font></th>
+                            </tr>
+                            </thead>
+                            {{tabel|safe}}
+                            </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.intro-header -->
+
+    <!-- Page Content -->
+    </div>
+    <!-- /.content-section-a -->
+
+
+	<a  name="contact"></a>
+    <div class="banner">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2>Bekijk de code van de website:</h2>
+                </div>
+                <div class="col-lg-6">
+                    <ul class="list-inline banner-social-buttons">
+                        <li>
+                            <a href="https://github.com/valerievdvorst/textmining" target="_blank" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.banner -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        <li>
+                            <a href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted small">Copyright &copy; HAN 2017. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="{{ url_for('static',filename='js/jquery.js') }}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+
+    <!-- tabel -->
+    <script type="text/javascript">
+
+        var socket = io.connect("http://127.0.0.1:5000");   
+
+        function searchRows(table1) {
+        var tbl = document.getElementById(table1);
+        var headRow = tbl.rows[0];
+        var arrayOfHTxt = new Array();
+        var arrayOfHtxtCellIndex = new Array();
+
+        for (var v = 0; v < headRow.cells.length; v++) {
+        if (headRow.cells[v].getElementsByTagName('input')[0]) {
+        var Htxtbox = headRow.cells[v].getElementsByTagName('input')[0];
+        if (Htxtbox.value.replace(/^\s+|\s+$/g, '') != '') {
+        arrayOfHTxt.push(Htxtbox.value.replace(/^\s+|\s+$/g, ''));
+        arrayOfHtxtCellIndex.push(v);
+        }
+        }
+        }
+
+        for (var i = 1; i < tbl.rows.length; i++) {
+
+            tbl.rows[i].style.display = 'table-row'; 
+
+            for (var v = 0; v < arrayOfHTxt.length; v++) {
+
+                var CurCell = tbl.rows[i].cells[arrayOfHtxtCellIndex[v]];
+                var CurCont = CurCell.innerHTML.replace(/<[^>]+>/g, "");
+                var reg = new RegExp(arrayOfHTxt[v] + ".*", "i");
+
+                if (CurCont.match(reg) == null) {
+
+                    tbl.rows[i].style.display = 'none';
+
+        }
+
+        }
+
+        }
+        }
+        </script> 
+
+</body>
+
+</html>
